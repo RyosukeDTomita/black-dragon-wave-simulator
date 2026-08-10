@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>邪王炎殺黒龍波</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="stage">
+    <video id="video" autoplay playsinline muted></video>
+    <canvas id="canvas"></canvas>
+    <div id="kanji" class="hidden"></div>
+    <div id="guide">✊ 拳を握って力を溜める → 🖐 手を開いて放つ!!(Escで戻る)</div>
+  </div>
+
+  <div id="overlay">
+    <div id="overlay-inner">
+      <h1>邪王炎殺黒龍波</h1>
+      <p>Webカメラに向かって<br>✊ 拳を握って力を溜め、🖐 手を開くと黒龍が放たれる</p>
+      <button id="start">起動する</button>
+      <p id="loading" class="hidden">読み込み中…(初回はモデルのダウンロードに少し時間がかかります)</p>
+      <p id="error" class="hidden"></p>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

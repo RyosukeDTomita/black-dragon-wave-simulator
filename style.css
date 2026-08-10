@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+}
+
+#stage {
+  position: fixed;
+  inset: 0;
+}
+
+#video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* 鏡映し */
+}
+
+#canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 技名の表示 */
+#kanji {
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-weight: 900;
+  color: #e8d6ff;
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
+}
+
+#kanji.charge {
+  font-size: clamp(18px, 3.5vw, 42px);
+  text-shadow: 0 0 12px #7b2fff, 0 0 30px #4a0a99;
+  animation: pulse 0.7s ease-in-out infinite alternate;
+}
+
+#kanji.fire {
+  font-size: clamp(48px, 11vw, 140px);
+  color: #f4eaff;
+  text-shadow:
+    0 0 10px #b06bff,
+    0 0 40px #7b2fff,
+    0 0 90px #2a0055;
+  animation: slam 0.25s ease-out;
+}
+
+@keyframes pulse {
+  from { opacity: 0.55; transform: translateX(-50%) scale(0.97); }
+  to   { opacity: 1;    transform: translateX(-50%) scale(1.03); }
+}
+
+@keyframes slam {
+  0%   { opacity: 0; transform: translateX(-50%) scale(2.2); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1); }
+}
+
+#guide {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #ddd;
+  font-size: 15px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* 起動前オーバーレイ */
+#overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #14001f 0%, #000 80%);
+  color: #eee;
+  z-index: 100;
+  text-align: center;
+}
+
+#overlay.hidden {
+  display: none;
+}
+
+#overlay-inner h1 {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(36px, 8vw, 80px);
+  color: #d9c2ff;
+  text-shadow: 0 0 18px #7b2fff, 0 0 60px #38006b;
+  margin-bottom: 24px;
+}
+
+#overlay-inner p {
+  line-height: 1.9;
+  margin-bottom: 28px;
+  color: #bbb;
+}
+
+#start {
+  font-size: 20px;
+  padding: 14px 48px;
+  border: 1px solid #8a4dff;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #2a0a4d, #12002a);
+  color: #e8d6ff;
+  cursor: pointer;
+  text-shadow: 0 0 8px #7b2fff;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#start:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 24px #7b2fff88;
+}
+
+#loading,
+#error {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+#error {
+  color: #ff7a7a;
+}
+
+.hidden {
+  display: none !important;
+}
