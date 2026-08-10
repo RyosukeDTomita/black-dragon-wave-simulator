@@ -1,4 +1,4 @@
-// 邪王炎殺黒龍波 — Webカメラ + MediaPipeで黒龍を放つ
+// Black Dragon Wave — Webカメラ + MediaPipeで黒龍を放つ
 // ✊拳で力を溜め(邪眼開眼+黒いオーラ)、🖐手のひらを向けた方向へ渦を巻く黒龍が飛ぶ
 
 import {
@@ -278,7 +278,7 @@ function fire(now) {
     });
   }
   shake = 22;
-  showKanji("黒 龍 波 !!", "fire");
+  showKanji("BLACK DRAGON WAVE!!", "fire");
   setTimeout(() => {
     if (kanjiEl.className === "fire") hideKanji();
   }, 1100);
